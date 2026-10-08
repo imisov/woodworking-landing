@@ -1,4 +1,94 @@
 /* CSS Variables */
+@font-face {
+    font-family: 'Merriweather';
+    src: url('../fonts/merriweather-400-cyrillic.woff2') format('woff2');
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
+@font-face {
+    font-family: 'Merriweather';
+    src: url('../fonts/merriweather-400-latin.woff2') format('woff2');
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+    font-family: 'Merriweather';
+    src: url('../fonts/merriweather-700-cyrillic.woff2') format('woff2');
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
+@font-face {
+    font-family: 'Merriweather';
+    src: url('../fonts/merriweather-700-latin.woff2') format('woff2');
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../fonts/montserrat-400-cyrillic.woff2') format('woff2');
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../fonts/montserrat-400-latin.woff2') format('woff2');
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../fonts/montserrat-500-cyrillic.woff2') format('woff2');
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../fonts/montserrat-500-latin.woff2') format('woff2');
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../fonts/montserrat-600-cyrillic.woff2') format('woff2');
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../fonts/montserrat-600-latin.woff2') format('woff2');
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
 :root {
     --primary-color: #c98a53; /* Warm wood color */
     --primary-hover: #b07441;
@@ -26,6 +116,30 @@ body {
     scroll-behavior: smooth;
 }
 
+/* Стилизация вертикального скроллбара страницы */
+body::-webkit-scrollbar {
+    width: 10px;
+}
+
+body::-webkit-scrollbar-track {
+    background: #e0e0e0;
+    border-radius: 8px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 8px;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-hover);
+}
+
+body.modal-open {
+  overflow: hidden;
+  padding-right: 10px;
+}
+
 h1, h2, h3 {
     font-family: var(--font-head);
     color: var(--text-main);
@@ -38,6 +152,18 @@ h2 {
 
 a {
     text-decoration: none;
+}
+
+button {
+    margin: 0;
+    padding: 0;
+    border: none;
+    width: auto;
+    overflow: visible;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    line-height: normal;
 }
 
 ul {
@@ -94,11 +220,6 @@ ul {
     color: var(--white);
 }
 
-.btn-whatsapp { background-color: #25D366; color: white; margin-right: 10px; margin-bottom: 10px;}
-.btn-whatsapp:hover { background-color: #20bd5a; }
-.btn-telegram { background-color: #0088cc; color: white; margin-bottom: 10px;}
-.btn-telegram:hover { background-color: #007ab8; }
-
 /* Hero Section */
 .hero {
     position: relative;
@@ -106,7 +227,6 @@ ul {
     min-height: 600px;
     display: flex;
     align-items: center;
-    /* background: url('https://images.unsplash.com/photo-1533090481728-8b5969da7d0e?auto=format&fit=crop&q=80&w=1920') center/cover no-repeat; */
     background: url('../img/5278427348824956356.jpg') center/cover no-repeat;
 }
 
@@ -155,38 +275,6 @@ ul {
 }
 
 /* Portfolio Section */
-/* .portfolio-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
-}
-
-.portfolio-item {
-    background: var(--white);
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    transition: transform 0.3s;
-}
-
-.portfolio-item:hover {
-    transform: translateY(-5px);
-}
-
-.portfolio-item img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    display: block;
-}
-
-.portfolio-caption {
-    padding: 20px;
-    font-size: 0.95rem;
-    color: var(--text-muted);
-} */
-/* --- Стили для Карусели Портфолио --- */
 .carousel-wrapper {
     position: relative;
     display: flex;
@@ -201,6 +289,7 @@ ul {
     scroll-behavior: smooth;
     scroll-snap-type: x mandatory;
     padding-bottom: 15px; /* Место под ползунок скролла */
+    padding-top: 5px; /* Место под .portfolio-item:hover */
     -webkit-overflow-scrolling: touch;
     width: 100%;
 }
@@ -255,7 +344,15 @@ ul {
 }
 
 .portfolio-caption {
-    padding: 20px;
+    padding: 20px 20px 0 20px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 1rem;
+    color: var(--text-muted);
+}
+
+.portfolio-description {
+    padding: 0 20px 20px 20px;
     font-size: 0.95rem;
     color: var(--text-muted);
 }
@@ -313,7 +410,7 @@ ul {
     to {transform: scale(1); opacity: 1;}
 }
 
-.close-modal {
+.close-modal-btn {
     position: absolute;
     top: 20px;
     right: 40px;
@@ -324,7 +421,7 @@ ul {
     transition: 0.3s;
 }
 
-.close-modal:hover {
+.close-modal-btn:hover {
     color: var(--primary-color);
 }
 
@@ -392,7 +489,42 @@ ul {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 16px;
+}
+
+.social-link {
+    display: flex;
+    width: 56px;
+    height: 56px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.social-link:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.social-link:focus-visible {
+    outline: 3px solid var(--white);
+    outline-offset: 4px;
+}
+
+/* .social-link svg {
+    width: 32px;
+    height: 32px;
+} */
+
+.social-link-avito,
+.social-link-max {
+    background-color: var(--white);
+}
+
+.social-link-vk {
+    color: var(--white);
+    background-color: #0077ff;
 }
 
 /* Footer */
@@ -409,5 +541,4 @@ footer {
     .hero-content h1 { font-size: 2.5rem; }
     .about-grid { grid-template-columns: 1fr; }
     .about-image { order: -1; }
-    .btn-whatsapp { margin-right: 0; }
 }

@@ -37,20 +37,39 @@ if (carousel && prevBtn && nextBtn) {
 const modal = document.getElementById("imageModal");
 const modalImg = document.getElementById("expandedImg");
 const zoomableImages = document.querySelectorAll('.zoomable');
-const closeModal = document.querySelector('.close-modal');
+const closeModalBtn = document.querySelector('.close-modal-btn');
 
 // Открытие модалки при клике на картинку
 zoomableImages.forEach(img => {
     img.addEventListener('click', function() {
         modal.style.display = "flex";
         modalImg.src = this.src;
+        document.body.classList.add('modal-open');
+
+        document.addEventListener('keydown', function(e) {
+            if (modal) {
+                if (['ArrowLeft', 'ArrowRight'].includes(e.key)) {
+                    e.preventDefault();
+                }
+                if (['Escape', 'Esc'].includes(e.key)) {
+                    e.stopPropagation();
+                    closeModal();
+                }
+            }
+        });
     });
 });
 
+// Функция закрытия модалки
+function closeModal() {
+    modal.style.display = "none";
+    document.body.classList.remove('modal-open');
+}
+
 // Закрытие по крестику
-if (closeModal) {
-    closeModal.addEventListener('click', function() {
-        modal.style.display = "none";
+if (closeModalBtn) {
+    closeModalBtn.addEventListener('click', function() {
+        closeModal();
     });
 }
 
@@ -58,7 +77,7 @@ if (closeModal) {
 if (modal) {
     modal.addEventListener('click', function(e) {
         if (e.target !== modalImg) {
-            modal.style.display = "none";
+            closeModal();
         }
     });
 }
